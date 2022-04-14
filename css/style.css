@@ -501,3 +501,45 @@ body{
     text-align: center;
     font-size: 15px;
 }
+
+
+/* ___After Search____ */
+/* ___Star New Code solution 1____ */
+/* .star-icon{
+    position: absolute;
+    top: 100%;
+    bottom: auto !important;
+    height: 2px !important;
+    background: #ffff !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.star-icon i{
+    position: relative;
+    top:  auto !important;
+}
+.star-icon::after{display: none;} 
+*/
+
+
+/* ___Star New Code solution 2____ */
+/* .star-icon::after,
+.star-icon::before{
+    content: " ";
+    display: block;
+    height: 2px;
+    background: #fff;
+    width: calc(50% - 50px);
+    bottom: 19px;
+    position: absolute;
+}
+
+.star-icon::before{
+    left: 0;
+    right: auto;
+}
+.star-icon::after{
+    right: 0;
+    left: auto;
+} */
