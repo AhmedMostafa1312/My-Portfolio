@@ -34,8 +34,57 @@
     flex-wrap: wrap;
 } 
 
+body{
+    padding-top: 80px; /*To avoid fixed header*/
+}
+
+/*------------ Star Style ------------*/
+.star-main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.star-line{
+    width: 100%;
+}
+
+.star-icon{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 250px;
+    font-size: 35px;
+    top: 15px;
+}
+
+.star-icon::after{
+    display: block;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    content: " ";
+    background: #FFF;
+    left: 0;
+    bottom: 15px;
+}
+
+.star-icon i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    z-index: 2;
+}
+
 /* ------------ Grid CSS Test ------------*/
-.container-grid{
+/* .container-grid{
     max-width: 1300px;
     margin: auto;
     padding-left: 15px;
@@ -49,7 +98,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 
 .col-grid{
@@ -68,23 +117,28 @@
 }
 
 /*------------ Media Query for Responsive logic ------------*/
-@media (max-width: 800px){
+/* @media (max-width: 800px){
     .col-grid{
         width: 50%;
     }
-}
+}  */
 
 
 /*------------ Header ------------*/
 .main-header{
     background: #2c3e50;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 }
 
 .main-header .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 80px;
     background: #2c3e50;
 }
 
@@ -135,6 +189,8 @@
 
 .nav-bar li a:hover{
     color: #1abc9c;
+    background-color: #2c3e50;
+    transform: scale(1.25);
 }
 
 /*-------------- Introduction ------------*/
@@ -145,31 +201,37 @@
 }
 
 .avatar{
-    width: 100%;
-    display: flex;
-    justify-content: center;
     padding-bottom: 35px;
 }
 
 .avatar img{
     width: 300px;
     display: block;
+    margin: auto;
 }
 
-.intro-text h1{
-    text-align: center;
-    color: #fff;
-    font-size: 50px;
-    font-weight: bold;
+.avatar img:hover{
+    transform: scale(1.25);
 }
 
+.intro-text h1,
 .intro-text p{
     text-align: center;
     color: #fff;
-    font-size: 30px;
     font-weight: bold;
 }
 
+.intro-text h1{
+    font-size: 50px;
+}
+
+.intro-text p{
+    font-size: 30px;
+}
+
+.intro-section .star-icon i{
+    background: #1abc9c;
+}
 
 /*------------ Portfolio ------------*/
 .portfolio-section{
@@ -187,7 +249,9 @@
 
 .portfolio-col{
     width: 33.333%;
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 30px;
 }
 
 .portfolio-content a, 
@@ -198,6 +262,43 @@
 .portfolio-content img{
     max-width: 100%;
     border-radius: 10px;
+}
+
+.portfolio-content a:hover .portfolio-animate-image{
+    background-color: rgba(44, 62, 80, 60%);
+    display: flex;
+}
+
+.portfolio-content a{
+    position: relative;
+}
+
+.portfolio-content a img{
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-animate-image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 70px;
+    border-radius: 10px;
+}
+
+.portfolio-section .star-icon i{
+    background: #FFF;
+}
+
+.portfolio-section .star-icon::after{
+    background: #2c3e50;
 }
 
 /*------------ Grid Tag Property ------------*/
@@ -217,33 +318,186 @@
     max-height: 270px;
 } */
 
-.portfolio-content a:hover .portfolio-animate-image{
-    background: #2c3e5077;
-    opacity: 1;
+/*------------ About ------------*/
+.about-section{
+    background-color: #1abc9c;
+    padding-top: 70px;
+    padding-bottom: 100px;
 }
 
-.portfolio-content a{
-    position: relative;
-}
-
-.portfolio-content a img{
-    position: relative;
-    z-index: 1;
-}
-
-.portfolio-animate-image{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: #2c3e5077;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    display: flex;
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
+.about-section h2{
+    text-align: center;
     color: #fff;
-    font-size: 70px;
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 70px;
+}
+
+.about-parag-content{
+    text-align: left;
+    color: #fff;
+    font-size: 20px;
+    display: block;
+}
+
+.about-section .row,
+.about-col{
+    justify-content: center;
+}
+
+.about-section .row{
+    padding-bottom: 100px;
+}
+
+.about-col{
+    width: 33.333%;
+    padding: 0 30px;
+}
+
+.about-free-down{
+    text-align: center;
+}
+
+.about-free-down:hover{
+    transform: scale(1.25);
+}
+
+.about-down-content a{
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.about-section .star-icon i{
+    background: #1abc9c;
+}
+
+.about-section .star-icon::after{
+    background: #FFF;
+}
+
+/*------------ Contact ------------*/
+.contact-section{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.contact-section h2{
+    text-align: center;
+    color: #2c3e50;
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 70px;
+}
+
+.form-style{
+    max-width: 50%;
+    margin: auto;
+}
+
+.input-style{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.input-content-style{
+    height: 50px;
+}
+
+.input-content-style,
+.text-area-content-style{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.submit-style{
+    text-align: left;
+}
+
+.button-style{
+    color: #FFF;
+    background-color: #1abc9c;
+    font-size: 20px;
+    border: transparent;
+    padding: 15px;
+    border-radius: 7px; 
+    cursor: pointer;
+}
+
+.contact-section .star-icon i{
+    background: #FFF;
+}
+
+.contact-section .star-icon::after{
+    background: #2c3e50;
+}
+
+/*------------ Footer ------------*/
+.footer-section{
+    background: #2c3e50;    
+}
+
+.footer-section .container{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.footer-col{
+    width: 33.333%;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+}
+
+.footer-col h2, p{
+    color: #FFF;
+}
+
+.footer-col h2{
+    padding-bottom: 20px;
+}
+
+.footer-social-icons{
+    list-style: none;
+    width: 60%;
+    padding-bottom: 5px;
+    padding-left: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-social-icons li a i{
+    color: #FFF;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    padding: 15px;
+    width: 50px;
+}
+
+.footer-social-icons li:hover{
+    transform: scale(1.15);
+}
+
+.Start-bootstrap-anchor{
+    color: #1abc9c;
+}
+
+.copyright-section{
+    background-color: #16212b;
+    padding: 20px;
+}
+
+.copyright-content{
+    text-align: center;
+    font-size: 15px;
 }
