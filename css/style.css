@@ -34,6 +34,10 @@
     flex-wrap: wrap;
 } 
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     padding-top: 80px; /*To avoid fixed header*/
 }
